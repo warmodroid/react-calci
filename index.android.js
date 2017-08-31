@@ -10,11 +10,23 @@ import Buttons from './app/Buttons';
 import ResultDisplay from './app/ResultDisplay';
 
 export default class Cal extends Component {
+
+  constructor(props){
+    super(props);
+    this.onButtonStateChange = this.onButtonStateChange.bind(this);
+    this.state = {value: ''};
+  }
+
+  onButtonStateChange(newValue) {
+    const v = newValue;
+    this.setState({value:v});
+  }
+
   render() {
     return (
       <View style = {styles.parent}>
-        <ResultDisplay/>
-        <Buttons/>
+        <ResultDisplay display={this.state.value}/>
+        <Buttons onStateChange={this.onButtonStateChange}/>
       </View>
     );
   }
