@@ -21,7 +21,6 @@ export default class Buttons extends Component {
     const oldValue = this.state.totalValue;
     const newValue = oldValue + value;
     this.setState({totalValue: newValue});
-    //const finalValue = this.state.totalValue;
     this.props.onStateChange && this.props.onStateChange(newValue);
   }
   render() {
